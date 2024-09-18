@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F0F4F8; /* Cor leve e tranquila */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #4A5568; /* Cor para título mais neutra */
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    color: #2D3748; /* Cor para o texto mais escura */
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #CBD5E0;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #EDF2F7;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #63B3ED;
+    background-color: #E2E8F0; /* Fundo mais claro no foco */
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4299E1; /* Cor principal do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3182CE; /* Tom um pouco mais escuro no hover */
+}
+
+.cadastro-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #63B3ED;
+    text-decoration: none;
+}
+
+.cadastro-link:hover {
+    text-decoration: underline;
+}

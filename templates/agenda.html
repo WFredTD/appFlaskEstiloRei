@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agendamento de serviços na barbearia Estilo do Rei">
+    <title>Agendamento - Estilo do Rei</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/agenda.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Estilo do Rei</h1>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </header>
+
+    <div class="agenda-container">
+        <h2 style="text-align: center;">Bem vindo {{nickname_logado}}</h2>
+        <br>
+        <form action="/confirmar_agendamento" method="POST" aria-labelledby="form-agenda">
+            <label for="nome">Nome do Cliente:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <label for="barbeiro">Selecione o Barbeiro:</label>
+            <select id="barbeiro" name="barbeiro" required>
+                <option value="" disabled selected>Escolha um barbeiro</option>
+                <!-- Aqui você pode inserir dinamicamente os barbeiros do banco de dados -->
+                <option value="1">Barbeiro 1</option>
+                <option value="2">Barbeiro 2</option>
+            </select>
+
+            <fieldset>
+                <legend>Selecione os serviços:</legend>
+
+                <label><input type="checkbox" name="servicos" value="25" onchange="atualizarTotal()"> Corte - R$25</label><br>
+                <label><input type="checkbox" name="servicos" value="25" onchange="atualizarTotal()"> Barba - R$25</label><br>
+                <label><input type="checkbox" name="servicos" value="45" onchange="atualizarTotal()"> Cabelo + Barba - R$45</label><br>
+                <label><input type="checkbox" name="servicos" value="15" onchange="atualizarTotal()"> Sobrancelha - R$15</label>
+            </fieldset>
+
+            <p>Total: R$ <span id="total">0</span></p>
+
+            <button type="submit">Confirmar</button>
+        </form>
+    </div>
+
+    <script>
+        function atualizarTotal() {
+            let checkboxes = document.querySelectorAll('input[name="servicos"]:checked');
+            let total = 0;
+            checkboxes.forEach(checkbox => {
+                total += parseFloat(checkbox.value);
+            });
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

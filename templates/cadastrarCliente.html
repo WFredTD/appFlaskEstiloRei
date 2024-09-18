@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de login da barbearia Estilo do Rei">
+    <title>Login - Estilo do Rei</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+   <!-- <header>
+        <h1>Estilo do Rei</h1>
+    </header>
+-->
+    <div class="login-container">
+        <h1>Cadastro</h1>
+        <form action="/cadastrar_cliente" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <label for="confirmar_senha">Confirmar Senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
+
+            {% if erro_senha %}
+                <p style="color: red;">{{ erro_senha }}</p>
+            {% endif %}
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
